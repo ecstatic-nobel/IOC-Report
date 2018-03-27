@@ -16,7 +16,7 @@ sed -e 's/hxxp/http/gi' \
     -e 's/\\././g' "$INPUT" | sort -u > sorted_input.txt
 
 # Set headers
-HEADERS='url,resource,fileType,md5,sha256'
+HEADERS='url,resource,fileType,md5,sha256,source'
 echo "$HEADERS" > "$OUTPUT"
 
 # Write results to output file
@@ -35,7 +35,7 @@ do
     MD5=$(md5sum downloadedFile | awk '{print $1}')
     SHA256=$(sha256sum downloadedFile | awk '{print $1}')
     rm -f downloadedFile
-    echo "$URL,$RESOURCE,$FILETYPE,$MD5,$SHA256" >> "$OUTPUT"
+    echo "$URL,$RESOURCE,$FILETYPE,$MD5,$SHA256,url" >> "$OUTPUT"
 done<sorted_input.txt
 
 # Remove sorted input file
