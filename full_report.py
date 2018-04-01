@@ -13,7 +13,7 @@ import os
 import requests
 import sys
 import time
-import config_test
+import config
 
 
 class IOCR:
