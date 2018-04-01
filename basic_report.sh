@@ -7,6 +7,11 @@
 INPUT="$1"
 OUTPUT="$2"
 
+# Get analysis time
+NLCOUNT=$(wc -l $INPUT | awk '{print $1}')
+URLCOUNT=$(echo "$NLCOUNT + 1" | bc -l)
+echo "Attempting to download $URLCOUNT files. Hang tight..."
+
 # Sort input file
 sed -e 's/hxxp/http/gi' \
     -e 's/ .*//gi' \
@@ -35,7 +40,7 @@ do
     MD5=$(md5sum downloadedFile | awk '{print $1}')
     SHA256=$(sha256sum downloadedFile | awk '{print $1}')
     rm -f downloadedFile
-    echo "$URL,$RESOURCE,$FILETYPE,$MD5,$SHA256,url" >> "$OUTPUT"
+    echo "$URL,$RESOURCE,$FILETYPE,$MD5,$SHA256,download" >> "$OUTPUT"
 done<sorted_input.txt
 
 # Remove sorted input file
