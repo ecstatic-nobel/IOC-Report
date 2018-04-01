@@ -4,7 +4,7 @@
 #### Description  
 This project is used as a tool to automate the process of using OSINT to find indicators of compromise (IOC) to sweep you environment for. Since this project was built around the public APIs, there is a rate limit. I used the VirusTotal rate limit (4 requests per minute at the time of writing this) as the baseline. Since the Hybrid-Analysis function of this script checks two environments (Win 7 32-bit and Win 7 64-bit), it takes approximately 45 seconds to pull the information for each URL provided. If you have access to the private API, just remove the 15 second waits and everything "should" be fine. Is 45 seconds a long time? Sure it is but this gives you more time to go do something else like flirt with your crush at work or twidle your thumbs.  
 
-The `OUTPUTFILE` was meant to be used as a lookup in Splunk in order to do more correlation with other log sources but as with any other open-source project, it as you best see fit. If you are a Splunk master, manipulating the lookup table should be a piece of cake.  
+The `OUTPUTFILE` was meant to be used as a lookup in Splunk in order to do more correlation with other log sources but as with any other open-source project, use it as you best see fit. If you are a Splunk master, manipulating the lookup table should be a piece of cake.  
 
 
 #### Prerequisites  
