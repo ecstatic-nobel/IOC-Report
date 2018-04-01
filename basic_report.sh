@@ -34,7 +34,7 @@ do
     FILETYPE=${FILEOUTPUT#downloadedFile: *}
     if [[ ! -f downloadedFile ]]
     then
-        echo "$URL,,," >> "$OUTPUT"
+        echo "$URL,,,,," >> "$OUTPUT"
         continue
     fi    
     MD5=$(md5sum downloadedFile | awk '{print $1}')
