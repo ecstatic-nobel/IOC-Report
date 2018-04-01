@@ -29,18 +29,19 @@ while read -r URL
 do
     rm -f downloadedFile
     curl -s "$URL" -o downloadedFile
+    OBFURL=$(echo "$URL" | sed -e 's/http/hxxp/gi' -e 's/\./[.]/g' )
     RESOURCE=$(echo "$URL" | cut -d / -f 4- | sed 's/^/\//g')
     FILEOUTPUT=$(file --mime-type downloadedFile)
     FILETYPE=${FILEOUTPUT#downloadedFile: *}
     if [[ ! -f downloadedFile ]]
     then
-        echo "$URL,,,,," >> "$OUTPUT"
+        echo "$OBFURL,$RESOURCE,,,," >> "$OUTPUT"
         continue
     fi    
     MD5=$(md5sum downloadedFile | awk '{print $1}')
     SHA256=$(sha256sum downloadedFile | awk '{print $1}')
     rm -f downloadedFile
-    echo "$URL,$RESOURCE,$FILETYPE,$MD5,$SHA256,download" >> "$OUTPUT"
+    echo "$OBFURL,$RESOURCE,$FILETYPE,$MD5,$SHA256,download" >> "$OUTPUT"
 done<sorted_input.txt
 
 # Remove sorted input file

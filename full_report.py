@@ -35,7 +35,8 @@ class IOCR:
         no_comment  = [x.split(' ')[0] for x in do_protocol]
         no_space    = [x.strip() for x in no_comment]
         show_period = [x.replace('[.]', '.').replace('[d]', '.').replace('[D]', '.').replace('\.', '.') for x in no_space]
-        sorted_data = sorted(set(show_period))
+        url_only    = [x for x in show_period if x.startswith('http')]
+        sorted_data = sorted(set(url_only))
 
         return sorted_data
 
@@ -141,10 +142,12 @@ class IOCR:
                     for ts in response['type_short']:
                         mimetype.append(self.get_mimetype(ts))
                     filetype = ' | '.join(mimetype)
-                    newline  = '%s,%s,%s,%s,%s,%s,%s,%s' % (line, tags, filetype, hosts, domains, hashes, imphash, str(eID))
+                    obfline  = line.replace('http', 'hxxp').replace('.', '[.]')
+                    newline  = '%s,%s,%s,%s,%s,%s,%s,%s' % (obfline, tags, filetype, hosts, domains, hashes, imphash, str(eID))
                     ilist.append(newline)
                 except:
-                    newline = '%s,,,,,,,' % line
+                    obfline  = line.replace('http', 'hxxp').replace('.', '[.]')
+                    newline  = '%s,,,,,,,' % obfline
                     ilist.append(newline)
                 
                 time.sleep(15)
