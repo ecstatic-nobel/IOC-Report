@@ -44,7 +44,7 @@ Either one of these scripts will read a list of URLs from the `INPUTFILE` and wr
 column -t -s , OUTPUTFILE
 ```
 
-Or, you can just open the `OUTPUTFILE` in Excel (LibreOffice Calc).  
+Or, you can just open the `OUTPUTFILE` in Excel (LibreOffice Calc). Sample outputs can be found [here](https://github.com/leunammejii/ioc_report/blob/master/sample_basic_results.csv) (basic report) and [here](https://github.com/leunammejii/ioc_report/blob/master/sample_full_results.csv) (full report).  
 
 #### Destroy
 To remove the project completely,  run the following commands:  
