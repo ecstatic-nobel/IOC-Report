@@ -82,7 +82,7 @@ class IOCR:
                 url      = split[0]
                 resource = '/'+'/'.join(url.split('/')[3:])
 
-                if len(split) == 5:
+                if len(split) == 6:
                     filetype  = split[2]
                     if filetype.startswith('application'): continue
 
@@ -100,7 +100,7 @@ class IOCR:
                     index = file_data.index(line)
                     file_data[index] = '%s,%s,,%s,%s,osint-virustotal' % (url, resource, md5, sha256)
                 except:
-                    if len(split) == 5:
+                    if len(split) == 6:
                         split[5] = 'file not found'
                     else:
                         split    = split + ['', '', '', '', '']
@@ -253,8 +253,8 @@ def main():
                         action='store_true',
                         dest='download',
                         required=False,
-                        help="attempt to download files first.")
-    parser.set_defaults(download=True)                    
+                        help="attempt to download files first")
+    parser.set_defaults(download=False)                    
     args = parser.parse_args()
     
     # Normalize Input Data
