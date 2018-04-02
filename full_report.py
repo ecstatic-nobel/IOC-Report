@@ -8,6 +8,7 @@ Description: Creates a CSV containing information about online files using Virus
 Usage: bash full_report.py
 """
 
+import argparse
 import hashlib
 import os
 import requests
@@ -53,7 +54,7 @@ class IOCR:
                 md5, sha256 = self.hash_file()
                 data.append('%s,%s,%s,%s,%s,download' % (url, resource, filetype, md5, sha256))
             except:
-                data.append('%s,%s,,,,invalid' % (url, resource))
+                data.append('%s,%s,,,,file not found' % (url, resource))
 
         return data
 
@@ -77,10 +78,14 @@ class IOCR:
             vt = 'http://www.virustotal.com/vtapi/v2/url/report'
 
             for line in file_data:
-                split = line.split(',')               
-                url       = split[0]
-                filetype  = split[2]
-                if filetype.startswith('application'): continue
+                split    = line.split(',')               
+                url      = split[0]
+                resource = '/'+'/'.join(url.split('/')[3:])
+
+                if len(split) == 5:
+                    filetype  = split[2]
+                    if filetype.startswith('application'): continue
+
                 uparams   = {'apikey': api_key, 'resource': url}
 
                 try:
@@ -89,14 +94,18 @@ class IOCR:
 
                     filescan_id = raw_response['filescan_id']
                     file_hash   = filescan_id.split('-')[0]
-                    resource    = '/'+'/'.join(url.split('/')[3:])
                     md5, sha256 = self.vt_report(None, api_key, 'file', file_hash)
                     time.sleep(15)
 
                     index = file_data.index(line)
                     file_data[index] = '%s,%s,,%s,%s,osint-virustotal' % (url, resource, md5, sha256)
                 except:
-                    split[5]         = 'invalid'
+                    if len(split) == 5:
+                        split[5] = 'file not found'
+                    else:
+                        split    = split + ['', '', '', '', '']
+                        split[5] = 'file not found'
+                    split[1]         = resource
                     index            = file_data.index(line)
                     file_data[index] = ','.join(split)
                     time.sleep(15)
@@ -238,25 +247,39 @@ class IOCR:
 
 def main():
     """ """
-    # Initial IOCs
+    # Parse Arguments
+    parser = argparse.ArgumentParser(description='Generate IOC report.')
+    parser.add_argument('-d', '--download',
+                        action='store_true',
+                        dest='download',
+                        required=False,
+                        help="attempt to download files first.")
+    parser.set_defaults(download=True)                    
+    args = parser.parse_args()
+    
+    # Normalize Input Data
     iocr = IOCR()
-    read_input = iocr.read_input(config_test.input_file)
+    read_input = iocr.read_input(config.input_file)
     norm_data  = iocr.norm_data(read_input)
-    file_data  = iocr.download_file(norm_data)
+    file_data  = norm_data
 
-    # Analysis Time
+    # Get the Analysis Time
     url_count     = len(norm_data)
     analysis_time = url_count*.75
     print 'Analysis of '+str(url_count)+' URLs will take approximately '+str(analysis_time)+' minutes. Hang tight...'
 
-    # # VirusTotal IOCs
-    vtr = iocr.vt_report(file_data, config_test.vt_api_key, 'url', None)
+    # Attempt to Download Files
+    if args.download:
+        file_data  = iocr.download_file(norm_data)
 
-    # Hybrid-Analysis IOCs
-    har = iocr.ha_report(config_test.ha_api_key, config_test.ha_secret_key, vtr)
+    # Attempt to Get IOCs from VirusTotal
+    vtr = iocr.vt_report(file_data, config.vt_api_key, 'url', None)
+
+    # Attempt to Get IOCs from Hybrid-Analysis
+    har = iocr.ha_report(config.ha_api_key, config.ha_secret_key, vtr)
 
     # Write Output to File
-    iocr.write_output(config_test.output_file, har)
+    iocr.write_output(config.output_file, har)
 
 if __name__ == '__main__':
     main()
