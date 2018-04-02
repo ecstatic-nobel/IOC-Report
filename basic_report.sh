@@ -35,7 +35,7 @@ do
     FILETYPE=${FILEOUTPUT#downloadedFile: *}
     if [[ ! -f downloadedFile ]]
     then
-        echo "$OBFURL,$RESOURCE,,,," >> "$OUTPUT"
+        echo "$OBFURL,$RESOURCE,,,,file not found" >> "$OUTPUT"
         continue
     fi    
     MD5=$(md5sum downloadedFile | awk '{print $1}')
