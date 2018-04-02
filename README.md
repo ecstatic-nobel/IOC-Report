@@ -35,6 +35,11 @@ The full report, `full_report.sh`, is used to pull down files and get the MIME-t
 
 To run the script, add the full path of the input and output file, the API keys for both VirusTotal and Hybrid-Analysis to config.py, and run the following command from the project directory:  
 ```python
+python full_report.py --download
+```
+
+This will attempt to download the files first to get the hashes. If you just want to search VirusTotal for the hashes without downloading the files, run the following command:  
+```python
 python full_report.py
 ```
 
