@@ -16,8 +16,6 @@ The `OUTPUTFILE` was meant to be used as a lookup in Splunk in order to do more 
 #### Setup  
 Open a terminal and run the following commands:  
 ```bash
-mkdir ~/leunammejii
-cd ~/leunammejii
 git clone https://github.com/leunammejii/ioc_report.git
 cd ioc_report
 ```
@@ -54,7 +52,7 @@ Or, you can just open the `OUTPUTFILE` in Excel (LibreOffice Calc). Sample outpu
 #### Destroy
 To remove the project completely,  run the following commands:  
 ```bash
-rm -rf ~/leunammejii/ioc_report
+rm -rf ioc_report
 ```  
 
 #### To-Do  
