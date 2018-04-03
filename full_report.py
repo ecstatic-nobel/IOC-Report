@@ -75,7 +75,7 @@ class IOCR:
     def vt_report(self, file_data, api_key, resource_type, hash):
         """GET results from Virus Total."""
         if resource_type == 'url':
-            vt = 'http://www.virustotal.com/vtapi/v2/url/report'
+            vt = 'https://www.virustotal.com/vtapi/v2/url/report'
 
             for line in file_data:
                 split    = line.split(',')               
@@ -110,7 +110,7 @@ class IOCR:
                     file_data[index] = ','.join(split)
                     time.sleep(15)
         elif resource_type == 'file':
-            vt      = 'http://www.virustotal.com/vtapi/v2/file/report'
+            vt      = 'https://www.virustotal.com/vtapi/v2/file/report'
             fparams = {'apikey': api_key, 'resource': hash}
 
             try:
