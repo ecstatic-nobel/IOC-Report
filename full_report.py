@@ -9,6 +9,8 @@ Usage: bash full_report.py
 """
 
 import argparse
+import collections
+import csv
 import hashlib
 import os
 import requests
@@ -21,6 +23,25 @@ class IOCR:
     """ """
     def __init__(self):
         """ """
+        self.headers = ','.join([
+            'initial:url',       
+            'initial:resource',
+            'initial:filetype',
+            'initial:md5',
+            'initial:sha256',
+            'initial:reference',
+            'vt:md5',
+            'vt:sha256',
+            'vt:reference',
+            'ha:tags',
+            'ha:filetype',
+            'ha:hosts',
+            'ha:domains',
+            'ha:hashes',
+            'ha:imphash',
+            'ha:reference'
+        ])
+        self.tmp_output_file = '/tmp/%s.tmp' % config.csv_output_file.rsplit('/', 1)[1]
 
     def read_input(self, inputFile):
         """Return contents from file"""
@@ -52,7 +73,7 @@ class IOCR:
                 open('downloadedFile', 'wb').write(results.content)
                 filetype    = results.headers.get('content-type').split(';')[0]
                 md5, sha256 = self.hash_file()
-                data.append('%s,%s,%s,%s,%s,download' % (url, resource, filetype, md5, sha256))
+                data.append('%s,%s,%s,%s,%s,downloaded from site' % (url, resource, filetype, md5, sha256))
             except:
                 data.append('%s,%s,,,,file not found' % (url, resource))
 
@@ -72,43 +93,59 @@ class IOCR:
 
         return md5.hexdigest(), sha256.hexdigest()
 
+    def full_report(self, file_data):
+        """Generate report formatted as a CSV file"""
+        csvExists = os.path.exists(config.csv_output_file)
+        if csvExists:
+            csv_contents = self.read_input(config.csv_output_file)
+
+        with open(config.csv_output_file, 'a') as csvOutputFile:
+            if not csvExists:
+                csvOutputFile.write('%s\n' % self.headers)
+                csv_contents = [self.headers]
+
+            for fd in file_data:
+                vtd = self.vt_report(fd, config.vt_api_key, 'url', None)
+                had = self.ha_report(config.ha_api_key, config.ha_secret_key, vtd)
+
+                for line in had:
+                    if line not in csv_contents:
+                        csvOutputFile.write('%s\n' % line)
+                        csvOutputFile.flush()
+                        os.fsync(csvOutputFile.fileno())
+
+        return
+
     def vt_report(self, file_data, api_key, resource_type, hash):
-        """GET results from Virus Total."""
+        """Return IOCs from Virus Total."""
         if resource_type == 'url':
-            vt = 'https://www.virustotal.com/vtapi/v2/url/report'
+            vt       = 'https://www.virustotal.com/vtapi/v2/url/report'
+            split    = file_data.split(',')               
+            url      = split[0]
+            resource = '/'+'/'.join(url.split('/')[3:])
+            uparams  = {'apikey': api_key, 'resource': url}
 
-            for line in file_data:
-                split    = line.split(',')               
-                url      = split[0]
-                resource = '/'+'/'.join(url.split('/')[3:])
+            try:
+                raw_response = requests.get(vt, params=uparams).json()
+                time.sleep(15)
 
+                filescan_id = raw_response['filescan_id']
+                file_hash   = filescan_id.split('-')[0]
+                md5, sha256 = self.vt_report(None, api_key, 'file', file_hash)
+                reference   = 'https://www.virustotal.com/#/file/%s/detection' % sha256
+                time.sleep(15)
+
+                if len(split) == 1:
+                    file_data = '%s,%s,,,,download skipped,%s,%s,%s' % (file_data, resource, md5, sha256, reference)
+                else:
+                    file_data = '%s,%s,%s,%s' % (file_data, md5, sha256, reference)
+            except:
                 if len(split) == 6:
-                    filetype  = split[2]
-                    if filetype.startswith('application'): continue
-
-                uparams   = {'apikey': api_key, 'resource': url}
-
-                try:
-                    raw_response = requests.get(vt, params=uparams).json()
-                    time.sleep(15)
-
-                    filescan_id = raw_response['filescan_id']
-                    file_hash   = filescan_id.split('-')[0]
-                    md5, sha256 = self.vt_report(None, api_key, 'file', file_hash)
-                    time.sleep(15)
-
-                    index = file_data.index(line)
-                    file_data[index] = '%s,%s,,%s,%s,osint-virustotal' % (url, resource, md5, sha256)
-                except:
-                    if len(split) == 6:
-                        split[5] = 'file not found'
-                    else:
-                        split    = split + ['', '', '', '', '']
-                        split[5] = 'file not found'
-                    split[1]         = resource
-                    index            = file_data.index(line)
-                    file_data[index] = ','.join(split)
-                    time.sleep(15)
+                    split = split + ['', '', 'file never seen']
+                else:
+                    split = split + [resource, '', '', '', '', '', '', 'file never seen']
+                file_data = ','.join(split)
+                time.sleep(15)
         elif resource_type == 'file':
             vt      = 'https://www.virustotal.com/vtapi/v2/file/report'
             fparams = {'apikey': api_key, 'resource': hash}
@@ -124,46 +161,48 @@ class IOCR:
 
         return file_data
 
-    def ha_report(self, api_key, api_secret, vt_report):
-        """GET results from Hybrid Analysis."""
-        server     = 'https://www.hybrid-analysis.com'
-        user_agent = {'User-agent': 'VxStream Sandbox'}
-        eIDs       = [100, 120]
-        ilist      = []
+    def ha_report(self, api_key, api_secret, vtd):
+        """Return IOCs from Hybrid Analysis."""
+        ha      = 'https://www.hybrid-analysis.com'
+        ua      = {'User-agent': 'VxStream Sandbox'}
+        eIDs    = [100, 120]
+        split   = vtd.split(',')
+        dlft    = split[2]
+        dlref   = split[5]
+        if not dlft.startswith('application/') or dlref == 'download skipped' or dlref == 'file not found':
+            sha256 = split[7]
+        else:
+            sha256 = split[4]
+        request = ha + "/api/summary/" + sha256
+        had     = []
 
-        for line in vt_report:
-            split   = line.split(',')
-            sha256  = split[4]
-            request = server + "/api/summary/" + sha256
+        for eID in eIDs:
+            params = {'apikey': api_key, 'secret': api_secret, 'environmentId': eID}
+            
+            try:
+                raw_resp = requests.get(request, headers=ua, params=params).json()
+                response = raw_resp['response']
+                tags     = ' | '.join(response['classification_tags'])
+                mimetype = []
+                for ts in response['type_short']: 
+                    mimetype.append(self.get_mimetype(ts))
+                filetype = ' | '.join(mimetype)
+                hosts    = ' | '.join(response['hosts'])
+                domains  = ' | '.join(response['domains'])
+                hashes   = ' | '.join(['%s (%s)' % (x['sha256'], x['name']) for x in response['extracted_files']])
+                imphash  = response['imphash']
+                ref      = 'https://www.hybrid-analysis.com/sample/%s?environmentId=%s' % (sha256, str(eID))
+                obfline  = vtd.replace('http', 'hxxp').replace('.', '[.]')
+                newline  = '%s,%s,%s,%s,%s,%s,%s,%s' % (obfline, tags, filetype, hosts, domains, hashes, imphash, ref)
+                had.append(newline)
+            except:
+                obfline  = vtd.replace('http', 'hxxp').replace('.', '[.]')
+                newline  = '%s,,,,,,,file never seen' % obfline
+                had.append(newline)
+            
+            time.sleep(15)
 
-            for eID in eIDs:
-                params = {'apikey': api_key, 'secret': api_secret, 'environmentId': eID}
-                
-                try:
-                    raw_resp = requests.get(request, headers=user_agent, params=params).json()
-                    response = raw_resp['response']
-                    tags     = ' | '.join(response['classification_tags'])
-                    hosts    = ' | '.join(response['hosts'])
-                    hashes   = ' | '.join(['%s (%s)' % (x['sha256'], x['name']) for x in response['extracted_files']])
-                    domains  = ' | '.join(response['domains'])
-                    imphash  = response['imphash']
-                    mimetype = []
-                    for ts in response['type_short']:
-                        mimetype.append(self.get_mimetype(ts))
-                    filetype = ' | '.join(mimetype)
-                    obfline  = line.replace('http', 'hxxp').replace('.', '[.]')
-                    newline  = '%s,%s,%s,%s,%s,%s,%s,%s' % (obfline, tags, filetype, hosts, domains, hashes, imphash, str(eID))
-                    ilist.append(newline)
-                except:
-                    obfline  = line.replace('http', 'hxxp').replace('.', '[.]')
-                    newline  = '%s,,,,,,,' % obfline
-                    ilist.append(newline)
-                
-                time.sleep(15)
-
-        ha_report = self.dedup_report(ilist)
-
-        return ha_report
+        return had
 
     def get_mimetype(self, ts):
         """Return MIME type"""
@@ -191,59 +230,33 @@ class IOCR:
 
         return mimetype.get(ts, ts)
 
-    def dedup_report(self, ilist):
-        """Return a unique list of the report."""
-        tlist = []
+    def flat_report(self):
+        """Generate report formatted as a flat text file"""
+        csv_data = self.read_input(config.csv_output_file)
+        grouped  = collections.OrderedDict()
 
-        for line in ilist:
-            if line.endswith(',100') or line.endswith(',120'):
-                split = line.split(',')
-                tline = ','.join(split[:-1])
-                if tline in tlist: continue
-                tlist.append(tline)
+        for row in csv_data[1:]:
+            key = row.split(',')[0]
+            if key in grouped:
+                grouped[key] = grouped[key] + [row.split(',')]
+            else:
+                grouped[key] = [row.split(',')]
 
-                sha256      = split[4]
-                eID         = split[-1]
-                ref         = 'https://www.hybrid-analysis.com/sample/' + sha256 + '?environmentId=' + eID
-                eIDi        = split.index(split[-1])
-                split[eIDi] = ref
-                vtri        = ilist.index(line)
-                ilist[vtri] = ','.join(split)
+        with open(config.txt_output_file, 'w') as txtOutputFile:
+            for _, values in grouped.items():
+                for index in range(len(values[0])):
+                    split_iocs    = [x[index].split(' | ') for x in values]
+                    filtered_iocs = filter(None, sum(split_iocs, []))
+                    if len(filtered_iocs) == 0: continue
+                    uniq_iocs = sorted(set(filtered_iocs))
+                    list_iocs = '\n\t'.join(uniq_iocs)
 
-        return sorted(set(ilist))
-
-    def write_output(self, outputFile, data):
-        """Write output to file"""
-        of_exists = os.path.isfile(outputFile)
-        header    = self.get_headers()
-
-        with open(outputFile, 'a') as output:
-            if not of_exists: output.write(header)
-            for line in data:
-                output.write('%s\n' % line)
-        output.close()
+                    txtOutputFile.write('%s\n' % self.headers.split(',')[index])
+                    txtOutputFile.write('\t%s\n' % list_iocs)
+                txtOutputFile.write('\n-----------------------------\n\n')
+        txtOutputFile.close()
 
         return
-
-    def get_headers(self):
-        """Return headers as a string."""
-        headers = [
-            'initial:url',
-            'initial:resource',
-            'initial:filetype',
-            'initial:md5',
-            'initial:sha256',
-            'initial:reference',
-            'ha:tags',
-            'ha:filetype',
-            'ha:hosts',
-            'ha:domains',
-            'ha:hashes',
-            'ha:imphash',
-            'ha:reference\n'
-        ]
-
-        return ','.join(headers)
 
 def main():
     """ """
@@ -254,7 +267,13 @@ def main():
                         dest='download',
                         required=False,
                         help="attempt to download files first")
-    parser.set_defaults(download=False)                    
+    parser.add_argument('-f', '--flat',
+                        action='store_true',
+                        dest='flat',
+                        required=False,
+                        help="generate report as a flat text file")
+    parser.set_defaults(download=False)                 
+    parser.set_defaults(flat=False)
     args = parser.parse_args()
     
     # Normalize Input Data
@@ -266,20 +285,18 @@ def main():
     # Get the Analysis Time
     url_count     = len(norm_data)
     analysis_time = url_count*.75
-    print 'Analysis of '+str(url_count)+' URLs will take approximately '+str(analysis_time)+' minutes. Hang tight...'
+    print 'Analysis of '+str(url_count)+' URLs will take approximately '+str(analysis_time)+' minutes. Check the file periodically for updates...'
 
     # Attempt to Download Files
     if args.download:
         file_data  = iocr.download_file(norm_data)
 
-    # Attempt to Get IOCs from VirusTotal
-    vtr = iocr.vt_report(file_data, config.vt_api_key, 'url', None)
+    # Generate Report Formatted as a CSV File
+    iocr.full_report(file_data)
 
-    # Attempt to Get IOCs from Hybrid-Analysis
-    har = iocr.ha_report(config.ha_api_key, config.ha_secret_key, vtr)
-
-    # Write Output to File
-    iocr.write_output(config.output_file, har)
+    # Generate Report Formatted as a Flat TXT File
+    if args.flat:
+        iocr.flat_report()
 
 if __name__ == '__main__':
     main()
