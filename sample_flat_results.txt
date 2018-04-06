@@ -1,0 +1,694 @@
+initial:url
+	hxxp://angelaragones[.]com/INV/EIW-192081014396/
+initial:resource
+	/INV/EIW-192081014396/
+initial:filetype
+	text/html
+initial:md5
+	d41d8cd98f00b204e9800998ecf8427e
+initial:sha256
+	e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+initial:reference
+	downloaded from site
+vt:md5
+	02244fbf2ba61afdf461f5e8cfdb19f4
+vt:sha256
+	f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251/detection
+ha:tags
+	banker
+	emotet
+ha:filetype
+	application/msword
+ha:hosts
+	144.76.35.68
+	149.62.173.247
+	158.58.170.24
+	185.4.74.140
+	185.46.168.126
+	198.12.152.123
+	203.198.129.4
+	217.13.106.241
+	23.62.197.99
+	61.19.254.63
+	88.221.234.34
+	88.221.234.51
+ha:domains
+	daeihagh.ir
+ha:hashes
+	0131c3a39eb958ed177a913929e0fc3fac4e5c409cd6a99f7986ad931183fc8d (PFPZO2HZTHP3X9MARXRC.temp)
+	045184a4341699608364fc8c111fb4d38d767bc5c781f57b710d1f4a434b719f (~$Normal.dotm)
+	045184a4341699608364fc8c111fb4d38d767bc5c781f57b710d1f4a434b719f (~$Y-35663089.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$RE-FORM-EFV-2308008.doc)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{A724F809-7FF8-4F18-B1A1-80C71D8C947C}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{ADC25CBA-7011-4367-9997-3F1219B1DF40}.tmp)
+	784186ec5f2a99c2be3e3c65ee03124afbbe72d4fea9e907ee887ea8aa1fe0b7 (index.dat)
+	7bf9f8c479927261ed0f02b435ad56b13f137db4703c2f65bd7eaaa39a13c32b (KJHB6VUEOH1TMW72PB28.temp)
+	917b3461e9040fa511e7cd4d86a9a5fd3088c8baa08dd21fe2e43d74bfb52715 (WMY-35663089.LNK)
+	9b0c9e35c94607939b04edb6e4ff65e14117c72e2bd9428e5f4701b733f12d6e (154172.exe)
+	b3044c0d3a161717d929d15062d6ea2853ed0e366d7955688b872a6ba3c6d9e6 (WIRE-FORM-EFV-2308008.LNK)
+	b3300c0096644bb023f8f366c14d027a717622b3fa22a84bb4698251bc6a590a (203693.exe)
+	ce0f623521dce059e9aea578e2d15d8c871e0f0c048c5e327cfb0d5161184917 (index.dat)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251?environmentId=100
+	https://www.hybrid-analysis.com/sample/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251?environmentId=120
+
+-----------------------------
+
+initial:url
+	hxxp://atabrsw192[.]192[.]axc[.]nl/INV/VW-3514308/
+initial:resource
+	/INV/VW-3514308/
+initial:filetype
+	text/html
+initial:md5
+	06150ec2a92ea42a6213ca405f015809
+initial:sha256
+	bb7691f68872741cca248af1731775cbdcf19f695cf90ceb1e12fa5c86ecd2b2
+initial:reference
+	downloaded from site
+vt:md5
+	02244fbf2ba61afdf461f5e8cfdb19f4
+vt:sha256
+	f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251/detection
+ha:tags
+	banker
+	emotet
+ha:filetype
+	application/msword
+ha:hosts
+	144.76.35.68
+	149.62.173.247
+	158.58.170.24
+	185.4.74.140
+	185.46.168.126
+	198.12.152.123
+	203.198.129.4
+	217.13.106.241
+	23.62.197.99
+	61.19.254.63
+	88.221.234.34
+	88.221.234.51
+ha:domains
+	daeihagh.ir
+ha:hashes
+	0131c3a39eb958ed177a913929e0fc3fac4e5c409cd6a99f7986ad931183fc8d (PFPZO2HZTHP3X9MARXRC.temp)
+	045184a4341699608364fc8c111fb4d38d767bc5c781f57b710d1f4a434b719f (~$Normal.dotm)
+	045184a4341699608364fc8c111fb4d38d767bc5c781f57b710d1f4a434b719f (~$Y-35663089.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$RE-FORM-EFV-2308008.doc)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{A724F809-7FF8-4F18-B1A1-80C71D8C947C}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{ADC25CBA-7011-4367-9997-3F1219B1DF40}.tmp)
+	784186ec5f2a99c2be3e3c65ee03124afbbe72d4fea9e907ee887ea8aa1fe0b7 (index.dat)
+	7bf9f8c479927261ed0f02b435ad56b13f137db4703c2f65bd7eaaa39a13c32b (KJHB6VUEOH1TMW72PB28.temp)
+	917b3461e9040fa511e7cd4d86a9a5fd3088c8baa08dd21fe2e43d74bfb52715 (WMY-35663089.LNK)
+	9b0c9e35c94607939b04edb6e4ff65e14117c72e2bd9428e5f4701b733f12d6e (154172.exe)
+	b3044c0d3a161717d929d15062d6ea2853ed0e366d7955688b872a6ba3c6d9e6 (WIRE-FORM-EFV-2308008.LNK)
+	b3300c0096644bb023f8f366c14d027a717622b3fa22a84bb4698251bc6a590a (203693.exe)
+	ce0f623521dce059e9aea578e2d15d8c871e0f0c048c5e327cfb0d5161184917 (index.dat)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251?environmentId=100
+	https://www.hybrid-analysis.com/sample/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251?environmentId=120
+
+-----------------------------
+
+initial:url
+	hxxp://atscasaespanamohali[.]net/Rechnung-Nr-93302/IIBZ86CW4HM6/
+initial:resource
+	/Rechnung-Nr-93302/IIBZ86CW4HM6/
+initial:filetype
+	application/msword
+initial:md5
+	abdca7fb2654545d2cc8ba858b5c0273
+initial:sha256
+	8ac7c762c5722878f671c4e69b27780728e12b4393c350362d3283e99bb1e504
+initial:reference
+	downloaded from site
+vt:md5
+	abdca7fb2654545d2cc8ba858b5c0273
+vt:sha256
+	8ac7c762c5722878f671c4e69b27780728e12b4393c350362d3283e99bb1e504
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/8ac7c762c5722878f671c4e69b27780728e12b4393c350362d3283e99bb1e504/detection
+ha:filetype
+	application/msword
+ha:hashes
+	092cb89ba3a5454816306ca3e7d5f5dc327c98d8f60cbc7e794be0570536144b (1H2ZVEGJ3Y.LNK)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{87E02552-427F-4A5E-AAED-EA080CF27133}.tmp)
+	9f781dea5d6af65bea28ca0ecbe1400cd94e8e98843f8d5d1332c576f05ce117 (~$2ZVEGJ3Y.doc)
+	9f781dea5d6af65bea28ca0ecbe1400cd94e8e98843f8d5d1332c576f05ce117 (~$Normal.dotm)
+	b9c1717844b3713cfac82dfb93008e9777d2465fd40f8ccd39b327e85724d525 (1570884193.cvr)
+	bf48671a6db6fd4c530186783dfdb2e4f4226d199fe5dca6759753b2721e1668 (index.dat)
+	fd94407285c346c58143bae0426c0a3fb3753814bb964dbe3d415ba67649ee98 (OL5SOYT8MK5M2IHBUW3V.temp)
+ha:imphash
+	Unknown
+ha:reference
+	file never seen
+	https://www.hybrid-analysis.com/sample/8ac7c762c5722878f671c4e69b27780728e12b4393c350362d3283e99bb1e504?environmentId=100
+
+-----------------------------
+
+initial:url
+	hxxp://att-hellolab[.]com/0Z5M3b0/
+initial:resource
+	/0Z5M3b0/
+initial:reference
+	file not found
+vt:md5
+	6e32e716a68a0da15d9e34d976343c01
+vt:sha256
+	cf12df363c74a04bb4bfc6f49285f10bea94d7deabba90f6a4f99e52d13c5c3d
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/cf12df363c74a04bb4bfc6f49285f10bea94d7deabba90f6a4f99e52d13c5c3d/detection
+ha:reference
+	file never seen
+
+-----------------------------
+
+initial:url
+	hxxp://ayomengaji[.]id/OM-2620247/
+initial:resource
+	/OM-2620247/
+initial:filetype
+	text/html
+initial:md5
+	c35e9d9f97ae80474e2fc756a38c9447
+initial:sha256
+	735f686d8ce34359c51a492b111f1c2f82f46cae4d876321f088d85aa1c4a639
+initial:reference
+	downloaded from site
+vt:md5
+	e8937101fec7f63b8bdabead1140ef5f
+vt:sha256
+	272541e7fdd2ebc12e6478107388a0869ff9274a2131636d618b92c5b8057422
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/272541e7fdd2ebc12e6478107388a0869ff9274a2131636d618b92c5b8057422/detection
+ha:filetype
+	application/msword
+ha:hosts
+	108.61.24.42
+	149.62.173.247
+	198.12.152.123
+	2.21.242.213
+ha:domains
+	autoholicgarage.com
+	daeihagh.ir
+ha:hashes
+	28074da9e61331668601a1c71cf5680db1a68539f24270230f18baa1a4c799ed (index.dat)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$AV2OMHQVEB.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{5CD6277B-6E76-4551-B369-5700ACEE73FA}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{65F5078A-D819-4614-9E0C-BE0830C6C2C9}.tmp)
+	5503bfae12d85827239575fa3b9f2505a9e53910a5bf01d5a0d812e665caaf3b (PXAV2OMHQVEB.LNK)
+	5f1b83e7774d2839622eef0a8d4cf663e49261db5197a4fcdf58c49927189c50 (224981.exe)
+	83f9731ff35cd15d781d8f67b96d539f67121f23d10d5b73420960af5812351b (OGZ-06733188383856.LNK)
+	b0cfadfe16a201c03fcea37dfc1d591d0f1cff749bcd07861d49e216a1b52147 (~$Normal.dotm)
+	b0cfadfe16a201c03fcea37dfc1d591d0f1cff749bcd07861d49e216a1b52147 (~$Z-06733188383856.doc)
+	ba553220e07720a16958675dc925922b935ea944488e1ed806ebdd0b98516419 (I2PPVVYX5HGLGMX0FKQK.temp)
+	d7dd5ad56f0e1b409f61cee375da67c430271b4fc51d7da40c50b78b752a2b98 (index.dat)
+	de3a59417f2ff31bcae79d0c3a853e263437ecc7b9c46680930be84758a23b71 (J66BINEX5IFHTKPYK9XJ.temp)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/272541e7fdd2ebc12e6478107388a0869ff9274a2131636d618b92c5b8057422?environmentId=100
+	https://www.hybrid-analysis.com/sample/272541e7fdd2ebc12e6478107388a0869ff9274a2131636d618b92c5b8057422?environmentId=120
+
+-----------------------------
+
+initial:url
+	hxxp://basarimatbaa[.]com/INVOICE/TC-7417871434/
+initial:resource
+	/INVOICE/TC-7417871434/
+initial:filetype
+	application/msword
+initial:md5
+	24494ff5988d56db75b0dedf204354a8
+initial:sha256
+	baf58a4bc4d98bba31011d2c598c9ff7783c7dc243e491478d287d3e99f0d3fa
+initial:reference
+	downloaded from site
+vt:md5
+	24494ff5988d56db75b0dedf204354a8
+vt:sha256
+	baf58a4bc4d98bba31011d2c598c9ff7783c7dc243e491478d287d3e99f0d3fa
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/baf58a4bc4d98bba31011d2c598c9ff7783c7dc243e491478d287d3e99f0d3fa/detection
+ha:tags
+	evasive
+ha:filetype
+	application/msword
+ha:hosts
+	162.251.81.235
+	77.245.149.12
+ha:domains
+	izmirelbisecilerodasi.org
+ha:hashes
+	07b9844a375c4200aef7123c190005f1a596b85c1c92cd71316f36c674b7e764 (index.dat)
+	19e303645d68aa5d6748eed26eb6e2ad3ffedc196cb1841963a696152564a133 (185267.exe)
+	236d2c3cefe00357fb190dd2629feebef907447f85dcb486842e350ea4bf12a0 (~$Normal.dotm)
+	236d2c3cefe00357fb190dd2629feebef907447f85dcb486842e350ea4bf12a0 (~$RE-FORM-EI-635600591.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$-32940802.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{BF7B825A-6C23-4A80-AFF8-4FD856DD0F88}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{DC47CE80-0FC4-4A41-8E20-91EF40600CC8}.tmp)
+	596985ae67335c8284a4444cba0f8063d7dcbefd5cc7c012fdd59647123280bf (UEGZ3F91NA5PY3J10LU4.temp)
+	6d6593b035ca2ca8a48c0ae554122e12a6b06cee4ce58755316e4f01aa8e7770 (index.dat)
+	a3d62d3f9eca0c3c4361dcb5ed11542fb2d6907b3c7677f900af73c7c3c75595 (2GTSJZJSSSGTTQTOKKQM.temp)
+	b0a25f1844151efb0e62631e825547143bcc3ce5a8fcd781b2f28c58f96b715e (WIRE-FORM-EI-635600591.LNK)
+	eb57a0dab99d84f9ad3402df1892eee3cd4a6885f8c4251934165df1642ad088 (WJ-32940802.LNK)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/baf58a4bc4d98bba31011d2c598c9ff7783c7dc243e491478d287d3e99f0d3fa?environmentId=100
+	https://www.hybrid-analysis.com/sample/baf58a4bc4d98bba31011d2c598c9ff7783c7dc243e491478d287d3e99f0d3fa?environmentId=120
+
+-----------------------------
+
+initial:url
+	hxxp://blog[.]undostres[.]com[.]mx/Rechnungs-Details/ZNGPGTWFH/
+initial:resource
+	/Rechnungs-Details/ZNGPGTWFH/
+initial:filetype
+	text/html
+initial:md5
+	e421fd2212d7d0ce58c756aefb256834
+initial:sha256
+	f211bb5c2fa20818589ada0f8b23392095bfa8cf3f5e915edac744d26635bcc8
+initial:reference
+	downloaded from site
+vt:reference
+	file never seen
+ha:reference
+	file never seen
+
+-----------------------------
+
+initial:url
+	hxxp://bodyface[.]tk/WIRE-FORM/FJA-9264309508050/
+initial:resource
+	/WIRE-FORM/FJA-9264309508050/
+initial:filetype
+	application/msword
+initial:md5
+	f452b676fd8a597f0ce72237d194425c
+initial:sha256
+	1f4a957b82e1bc436ee2b4de6c306648e5495344fed26e893f0e12935d6ec853
+initial:reference
+	downloaded from site
+vt:md5
+	f452b676fd8a597f0ce72237d194425c
+vt:sha256
+	1f4a957b82e1bc436ee2b4de6c306648e5495344fed26e893f0e12935d6ec853
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/1f4a957b82e1bc436ee2b4de6c306648e5495344fed26e893f0e12935d6ec853/detection
+ha:filetype
+	application/msword
+ha:hashes
+	19ee357c9b342ff7155025ec08aefc19a2d35091e0a8f2ea6586f7cf9bf470ed (N8X324WKIPFE56RPGYID.temp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{7E63BCAC-CCD7-4D77-A00D-DADBDA34F3FD}.tmp)
+	8cd494ae5ae58f1f876fb43bc40594bdd286451cc071a10c8a3094735a4df457 (index.dat)
+	a072ea02f401dbaceead09723b9ac53043adb3ca5320a47eabe529add4d22886 (~$-124402734457196.doc)
+	a072ea02f401dbaceead09723b9ac53043adb3ca5320a47eabe529add4d22886 (~$Normal.dotm)
+	d787167eed31bf5cb65d4c55fbd4db410ddd18ecca459ca4d2c877861c70e4c8 (RK-124402734457196.LNK)
+	f95bb8be6de69f0db321e39a1bc0b8d2f5aa1e9552ae3a1b3f0d004667a37601 (1571074556.cvr)
+ha:imphash
+	Unknown
+ha:reference
+	file never seen
+	https://www.hybrid-analysis.com/sample/1f4a957b82e1bc436ee2b4de6c306648e5495344fed26e893f0e12935d6ec853?environmentId=100
+
+-----------------------------
+
+initial:url
+	hxxp://bonakma[.]com/wp-content/Mar-16-08-55-17/Quantum-View/
+initial:resource
+	/wp-content/Mar-16-08-55-17/Quantum-View/
+initial:filetype
+	application/msword
+initial:md5
+	de3a69f7c89fa972e2b7f95fa521252f
+initial:sha256
+	d32da5456fca9b4719d3eda37f208ac905862397f4da971e791e463d1344056b
+initial:reference
+	downloaded from site
+vt:md5
+	de3a69f7c89fa972e2b7f95fa521252f
+vt:sha256
+	d32da5456fca9b4719d3eda37f208ac905862397f4da971e791e463d1344056b
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/d32da5456fca9b4719d3eda37f208ac905862397f4da971e791e463d1344056b/detection
+ha:filetype
+	application/msword
+ha:hosts
+	103.47.192.52
+	107.161.160.30
+	162.212.157.225
+	174.36.13.237
+	191.242.178.46
+	198.12.152.123
+	203.198.129.4
+	208.84.149.100
+	61.19.254.63
+	69.94.34.189
+	78.108.80.117
+	78.46.65.203
+	88.221.144.11
+	92.122.122.136
+ha:domains
+	babyfriendlyworld.com
+	balsammed.net
+	demo3.icolor.vn
+ha:hashes
+	057c42311e3ef169beae894c79d15e44c50cd596c332398ff8c3d5e49fcda536 (6816296-AYLK-SZXU.LNK)
+	112c987112ab18cc6f8b7c26dd84d3d6ec85a14e1fc1382b59725dc46235ffe2 (262215.exe)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$16296-AYLK-SZXU.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	3c6fbca401798545d667e57e9457a761abfbd63043335c2d618d1e797114031e (index.dat)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{12FEA05B-2AC9-4EB7-891D-ED88096FC973}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{BA4BA6F5-A6AC-4D28-A759-203C6ABC4D3B}.tmp)
+	6aedc58f42047f813c0b024af3ed9997806260b51a202d72d27b0f4c87d74411 (~$1250665-XSD-FHVFB.doc)
+	6aedc58f42047f813c0b024af3ed9997806260b51a202d72d27b0f4c87d74411 (~$Normal.dotm)
+	84d69dc76d87121497b6bd6043ecd8f6e0dca03c256a8649696c3d63d39ef56e (index.dat)
+	9fe42bf1528d43fb5623a9f9b012f433d5cbfcac489d8e955b3e7e67878cdc91 (~WRD0001.tmp)
+	a6df59fae107a434f3b7fde8088dd447d7c2b144f940b7f87dbafbae1f5d16f7 (139888.exe)
+	b215da65ddda81ab7812c3fcb86ea0092364b8763a45060032e230fea321508f (MZVM2119FHLGMWVSMQ0X.temp)
+	c16beb21477b10539aa717b9823b2805c20d2f6e1de55b66c2a0fb51c22a064e (5UU2J4J80QNNNVCLV8RZ.temp)
+	e1f37d99490cd216b2fc6fdd9a161b1fa63273f7d0a14de4fff287d8286ca2b0 (~WRD0000.tmp)
+	e882bd06776f4b23967d0a1fdc61c9b9b329f60f178c6a8fbc80634a115958a4 (521250665-XSD-FHVFB.LNK)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/d32da5456fca9b4719d3eda37f208ac905862397f4da971e791e463d1344056b?environmentId=100
+	https://www.hybrid-analysis.com/sample/d32da5456fca9b4719d3eda37f208ac905862397f4da971e791e463d1344056b?environmentId=120
+
+-----------------------------
+
+initial:url
+	hxxp://climateinsulationlimited[.]com/xerox/New-invoice-76341158/
+initial:resource
+	/xerox/New-invoice-76341158/
+initial:filetype
+	application/msword
+initial:md5
+	cc359a879e748cfb95d1d097c9671039
+initial:sha256
+	b01b4536b42112800c59916770b78df94bd5e860c2de228215e7d54f18e35be5
+initial:reference
+	downloaded from site
+vt:md5
+	cc359a879e748cfb95d1d097c9671039
+vt:sha256
+	b01b4536b42112800c59916770b78df94bd5e860c2de228215e7d54f18e35be5
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/b01b4536b42112800c59916770b78df94bd5e860c2de228215e7d54f18e35be5/detection
+ha:tags
+	banker
+	emotet
+ha:filetype
+	application/msword
+ha:hosts
+	173.255.217.114
+	198.187.29.106
+ha:domains
+	cohomesdenver.com
+ha:hashes
+	3ec02f673c9f4fed392bbe1340e3e7cfd2656cbf7df5db964a18baa319ee1808 (239351.exe)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{9FB35279-D6D8-40E0-8D24-949A3EF7EA35}.tmp)
+	61d2c751005e7d415d8ffb05bbd8bc3dcf3f18689bf3fc86f33727207bf5e7f2 (index.dat)
+	941f8aa8d5c4f3eaf364a22989b1270f9a1c46e771b7b3a1640402f4fa2673a0 (FHV8WW9079890SPZYZ31.temp)
+	cb8e259ea530346be81dc8eb616382d4792f172ab0df70f54c96b18388c6aaa0 (b01b4536b42112800c59916770b78df94bd5e860c2de228215e7d54f18e35be5.LNK)
+	d5e5ca78483caa00edfbe67e82f238b68363d557a2766fcb7ef4ef33e466934a (~$1b4536b42112800c59916770b78df94bd5e860c2de228215e7d54f18e35be5.doc)
+	d5e5ca78483caa00edfbe67e82f238b68363d557a2766fcb7ef4ef33e466934a (~$Normal.dotm)
+ha:imphash
+	Unknown
+ha:reference
+	file never seen
+	https://www.hybrid-analysis.com/sample/b01b4536b42112800c59916770b78df94bd5e860c2de228215e7d54f18e35be5?environmentId=100
+
+-----------------------------
+
+initial:url
+	hxxp://digital[.]syd[.]fr/Invoice-receipt/
+initial:resource
+	/Invoice-receipt/
+initial:filetype
+	application/msword
+initial:md5
+	b711729dc47dfe7971cdd721f1f946fd
+initial:sha256
+	45e634eb141a5588de9ff361ddbb0520e2867e54a021209b6a475031ca05780f
+initial:reference
+	downloaded from site
+vt:reference
+	file never seen
+ha:tags
+	banker
+	emotet
+ha:filetype
+	application/msword
+ha:hosts
+	103.233.58.6
+	139.59.103.116
+	173.201.1.1
+	192.169.195.219
+	203.198.129.4
+	37.128.146.91
+	37.97.239.30
+	54.227.38.29
+	61.19.254.63
+ha:domains
+	lacure-maroc.com
+ha:hashes
+	070bd11d546ff0c12c89b57190b92a2dbc942c7bcd01b0274758552272e5b2b3 (161320.exe)
+	070bd11d546ff0c12c89b57190b92a2dbc942c7bcd01b0274758552272e5b2b3 (247951.exe)
+	1a8c6cbef480c9c5fddb25bd139d962ee3eee3bf8dcfd426c6806d796d58b2ef (~$cument needed.doc)
+	1d0219029e3961f3316eed03ccd6023d431378e802c125a56e96006c0c9c33e3 (index.dat)
+	35ba01bcd727ac01f07e6187574abdd64ffdacea2038d678076d669aebcf9dd0 (DH5POSQHZBNGGWZ1FW9V.temp)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$en Past Due Orders.doc)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{7C384C47-EEEA-499C-A2D3-B6FA213F0DFE}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{E97E4ECC-19C4-4DBE-B577-225864046C39}.tmp)
+	75acc9c7c623f81ef356025d39695b3ae53c8430ba5dd5060ec5a4547d8df95e (Document needed.LNK)
+	9b14fabc13873eee3789006d13004d66a0ad33647dfb49bd7f0bd15f80b11442 (index.dat)
+	a7aefc8cf099c52250f1f2b48471cb8f47e9df115c8ea4039dcb1dc91b960b10 (MSO1049.acl)
+	ac2b5faa8bd9daf58b5c36d639bd21032f7f9234a59733b2e69c067e18ebeee0 (QU9RV6EQVOUJRV124I8C.temp)
+	acd1c81022fc363e1a964db216291977f741e52a87245d78a113e2dd1a1b175d (Open Past Due Orders.LNK)
+	e0519a62a2eaeadca3b33f2c1e3f749eca1a6477aa9fbfb78ace112834efd386 (~$Normal.dotm)
+	eb6b18adeeb677dc169d854781fcc2836e76358d919e386a85847f2e264cf2bc (1570885628.cvr)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/45e634eb141a5588de9ff361ddbb0520e2867e54a021209b6a475031ca05780f?environmentId=100
+	https://www.hybrid-analysis.com/sample/45e634eb141a5588de9ff361ddbb0520e2867e54a021209b6a475031ca05780f?environmentId=120
+
+-----------------------------
+
+initial:url
+	hxxp://dobdom[.]su/ACH-FORM/RCU-727234266420/
+initial:resource
+	/ACH-FORM/RCU-727234266420/
+initial:filetype
+	application/msword
+initial:md5
+	f452b676fd8a597f0ce72237d194425c
+initial:sha256
+	1f4a957b82e1bc436ee2b4de6c306648e5495344fed26e893f0e12935d6ec853
+initial:reference
+	downloaded from site
+vt:md5
+	71839333572e0e0d8c787401e43f94ee
+vt:sha256
+	1f5d5052d3adcfc9b05f321306b52ea74d91423f5320cc8007e7bbf65dc703f2
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/1f5d5052d3adcfc9b05f321306b52ea74d91423f5320cc8007e7bbf65dc703f2/detection
+ha:filetype
+	application/msword
+ha:hashes
+	19ee357c9b342ff7155025ec08aefc19a2d35091e0a8f2ea6586f7cf9bf470ed (N8X324WKIPFE56RPGYID.temp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{7E63BCAC-CCD7-4D77-A00D-DADBDA34F3FD}.tmp)
+	8cd494ae5ae58f1f876fb43bc40594bdd286451cc071a10c8a3094735a4df457 (index.dat)
+	a072ea02f401dbaceead09723b9ac53043adb3ca5320a47eabe529add4d22886 (~$-124402734457196.doc)
+	a072ea02f401dbaceead09723b9ac53043adb3ca5320a47eabe529add4d22886 (~$Normal.dotm)
+	d787167eed31bf5cb65d4c55fbd4db410ddd18ecca459ca4d2c877861c70e4c8 (RK-124402734457196.LNK)
+	f95bb8be6de69f0db321e39a1bc0b8d2f5aa1e9552ae3a1b3f0d004667a37601 (1571074556.cvr)
+ha:imphash
+	Unknown
+ha:reference
+	file never seen
+	https://www.hybrid-analysis.com/sample/1f4a957b82e1bc436ee2b4de6c306648e5495344fed26e893f0e12935d6ec853?environmentId=100
+
+-----------------------------
+
+initial:url
+	hxxp://ds04[.]projectstatus[.]co[.]uk/totalwirelessdat/modules/INVOICE/TH-7449152285/
+initial:resource
+	/totalwirelessdat/modules/INVOICE/TH-7449152285/
+initial:filetype
+	application/msword
+initial:md5
+	02244fbf2ba61afdf461f5e8cfdb19f4
+initial:sha256
+	f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251
+initial:reference
+	downloaded from site
+vt:md5
+	42f1d63443de9ade556c4b317e72de30
+vt:sha256
+	d20e4e9eb79b56bd78fe75d98bdd925b61961107567eae33c3bc6a34b990c614
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/d20e4e9eb79b56bd78fe75d98bdd925b61961107567eae33c3bc6a34b990c614/detection
+ha:tags
+	banker
+	emotet
+ha:filetype
+	application/msword
+ha:hosts
+	144.76.35.68
+	149.62.173.247
+	158.58.170.24
+	185.4.74.140
+	185.46.168.126
+	198.12.152.123
+	203.198.129.4
+	217.13.106.241
+	23.62.197.99
+	61.19.254.63
+	88.221.234.34
+	88.221.234.51
+ha:domains
+	daeihagh.ir
+ha:hashes
+	0131c3a39eb958ed177a913929e0fc3fac4e5c409cd6a99f7986ad931183fc8d (PFPZO2HZTHP3X9MARXRC.temp)
+	045184a4341699608364fc8c111fb4d38d767bc5c781f57b710d1f4a434b719f (~$Normal.dotm)
+	045184a4341699608364fc8c111fb4d38d767bc5c781f57b710d1f4a434b719f (~$Y-35663089.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$RE-FORM-EFV-2308008.doc)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{A724F809-7FF8-4F18-B1A1-80C71D8C947C}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{ADC25CBA-7011-4367-9997-3F1219B1DF40}.tmp)
+	784186ec5f2a99c2be3e3c65ee03124afbbe72d4fea9e907ee887ea8aa1fe0b7 (index.dat)
+	7bf9f8c479927261ed0f02b435ad56b13f137db4703c2f65bd7eaaa39a13c32b (KJHB6VUEOH1TMW72PB28.temp)
+	917b3461e9040fa511e7cd4d86a9a5fd3088c8baa08dd21fe2e43d74bfb52715 (WMY-35663089.LNK)
+	9b0c9e35c94607939b04edb6e4ff65e14117c72e2bd9428e5f4701b733f12d6e (154172.exe)
+	b3044c0d3a161717d929d15062d6ea2853ed0e366d7955688b872a6ba3c6d9e6 (WIRE-FORM-EFV-2308008.LNK)
+	b3300c0096644bb023f8f366c14d027a717622b3fa22a84bb4698251bc6a590a (203693.exe)
+	ce0f623521dce059e9aea578e2d15d8c871e0f0c048c5e327cfb0d5161184917 (index.dat)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251?environmentId=100
+	https://www.hybrid-analysis.com/sample/f9c8b231fa050a7acc7b6da5171554068dfedd235ad9bd320c2cb0a9eff3b251?environmentId=120
+
+-----------------------------
+
+initial:url
+	hxxp://dworkociolek[.]pl//INV/COA-816676452701857/
+initial:resource
+	//INV/COA-816676452701857/
+initial:filetype
+	application/msword
+initial:md5
+	70bfc545f0232149b13206c4574077de
+initial:sha256
+	3adbbc7877109c4039f59394fcb73f89fcbccf8ceabbbd4b043f332587f80e35
+initial:reference
+	downloaded from site
+vt:md5
+	70bfc545f0232149b13206c4574077de
+vt:sha256
+	3adbbc7877109c4039f59394fcb73f89fcbccf8ceabbbd4b043f332587f80e35
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/3adbbc7877109c4039f59394fcb73f89fcbccf8ceabbbd4b043f332587f80e35/detection
+ha:filetype
+	application/msword
+ha:hashes
+	347752bec8c306bcc3c018d71f6777abb221c332959c3ca93df4f4002f4eb0ff (~$Normal.dotm)
+	347752bec8c306bcc3c018d71f6777abb221c332959c3ca93df4f4002f4eb0ff (~$T-9481080202.doc)
+	3cd0a6c47a495f81ff4afed01914b440a541fefc03c60b144168e75b26feb4cd (QBT-9481080202.LNK)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{D37AECFC-14EC-476D-B990-73B172F88862}.tmp)
+	b4504d356226b963d177dfe41f43a4df1df4cd2e2094fe259a21bcd168d9d225 (IA684TSURM6ME4AEAWRL.temp)
+	d7b97205e833df21375c404cd9ac8899e6aa4366aba8338a12e49cae3bfed84f (index.dat)
+ha:imphash
+	Unknown
+ha:reference
+	file never seen
+	https://www.hybrid-analysis.com/sample/3adbbc7877109c4039f59394fcb73f89fcbccf8ceabbbd4b043f332587f80e35?environmentId=100
+
+-----------------------------
+
+initial:url
+	hxxp://www[.]feelingnoir[.]com/INVOICE/WQV-7800280777923/
+initial:resource
+	/INVOICE/WQV-7800280777923/
+initial:filetype
+	text/html
+initial:md5
+	9e062a39ad2314bbee1ca438217fc0d8
+initial:sha256
+	c3304e37828a2e969b2aa9788e853b87fa7576ed5ada2859b5a0c641d0c3d392
+initial:reference
+	downloaded from site
+vt:md5
+	3dea6e4a74ae5c8a6b8dd3bae0de6081
+vt:sha256
+	6c09a3f77e8a1ce36ffdf1bf0cff8aa9bb5c17616ba8f31db31d8b5946245362
+vt:reference
+	hxxps://www[.]virustotal[.]com/#/file/6c09a3f77e8a1ce36ffdf1bf0cff8aa9bb5c17616ba8f31db31d8b5946245362/detection
+ha:reference
+	file never seen
+
+-----------------------------
+
+initial:url
+	hxxp://www[.]frauzett[.]de/ACH-FORM/UQ-605127775/
+initial:resource
+	/ACH-FORM/UQ-605127775/
+initial:filetype
+	application/msword
+initial:md5
+	e40e49a130554907075e0a4f4d2a37fc
+initial:sha256
+	0424c8c7e4f4c5dac96f1526b9e607e86d923455ae7e98c5d300a5d8fab7a22e
+initial:reference
+	downloaded from site
+vt:reference
+	file never seen
+ha:filetype
+	application/msword
+ha:hosts
+	149.202.153.252
+	172.227.102.35
+	173.247.241.152
+	2.21.242.213
+ha:domains
+	africanism.net
+ha:hashes
+	26b9ea610a03baf4608864e76cce448c6215c14bd70a36d81024c7b51e0fb607 (index.dat)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$A-6713340161536.doc)
+	3882a3e04d6cf66707b31c8cb14a7c9fe512d10dd355f97a37e8666270f6e17d (~$Normal.dotm)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{58B1AD0A-CEA1-4C44-8B44-FD80918D3FB9}.tmp)
+	4826c0d860af884d3343ca6460b0006a7a2ce7dbccc4d743208585d997cc5fd1 (~WRS{B746D9CA-21BE-441F-932F-0180551195C3}.tmp)
+	4f99196a0b302580d2deb2a103824464cadbfbbf7c1d243a496ad521b1eb47bb (E2WXYCHJAP6NMZELNY9O.temp)
+	68b0439c7e0bd0360a797e18ded7aa605b5eb899d69e3c1bbf6378071c40e333 (OOA-6713340161536.LNK)
+	7d3e14e35279b87261ad01fac366eb64515dff36b79110fb563a2866c73e4921 (56679.exe)
+	7d3e14e35279b87261ad01fac366eb64515dff36b79110fb563a2866c73e4921 (81115.exe)
+	89177c9526f4d1d8a5d3e5890213e09c27712a9bd6b544b818b6dacb0fb4957d (index.dat)
+	b6d5869fb89739228c4e2f41adc83a294a55a7f5173bf7f9e5412d94fc117b61 (YZ0AM1C27GRG16D2G0NL.temp)
+	b74fc00b8a562819c38a607afdd99147187dc7d5d11965f28e137033488447e3 (~$Normal.dotm)
+	b74fc00b8a562819c38a607afdd99147187dc7d5d11965f28e137033488447e3 (~$X-9835681067.doc)
+	e37399bd07baae39e8d7937f6878ac046fa33d9e5a10cc9988ef8ae19bae7e7e (RJX-9835681067.LNK)
+ha:imphash
+	Unknown
+ha:reference
+	https://www.hybrid-analysis.com/sample/0424c8c7e4f4c5dac96f1526b9e607e86d923455ae7e98c5d300a5d8fab7a22e?environmentId=100
+	https://www.hybrid-analysis.com/sample/0424c8c7e4f4c5dac96f1526b9e607e86d923455ae7e98c5d300a5d8fab7a22e?environmentId=120
+
+-----------------------------
+
