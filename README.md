@@ -1,5 +1,5 @@
 # [ioc_report]  
-##### Generate a report report containing IOCs gathered from VirusTotal and Hybrid-Analysis.  
+##### Generate a report containing IOCs gathered from VirusTotal and Hybrid-Analysis.  
 
 #### Description  
 This project is used as a tool to automate the process of gathering indicators of compromise (IOC) from VirusTotal or Hybrid-Analysis to sweep your environment. Since this project was built around public APIs, there is a rate limit. I used the VirusTotal rate limit (4 requests per minute at the time of writing this) as the baseline. Since the Hybrid-Analysis function of this script checks two environments (Win 7 32-bit and Win 7 64-bit), it takes approximately 45 seconds to pull the information for each URL provided when generating the full report. The basic report just provides the filetypes and checksums of the initial downloads so this should be 10x faster (FILE DOWNLOAD TIME x NUMBER OF URLS PROVIDED). If you have access to the private API, just remove the 15 second waits and everything "should" be fine (I haven't check the rate limits for the private API because I'm broke). Is 45 seconds a long time? Sure it is but this gives you more time to go do something else like flirt with your crush at work or twidle your thumbs.  
