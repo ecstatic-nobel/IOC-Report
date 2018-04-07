@@ -51,7 +51,7 @@ Both of these scripts will read a list of URLs from the `INPUTFILE` and write th
 column -t -s , OUTPUTFILE
 ```
 
-Or, you can just open the `OUTPUTFILE` in Excel (LibreOffice Calc). Sample outputs can be found [here](https://github.com/leunammejii/ioc_report/blob/master/sample_basic_results.csv) (basic report), [here](https://github.com/leunammejii/ioc_report/blob/master/sample_full_results.csv) (full report), and [here](https://github.com/leunammejii/ioc_report/blob/master/sample_full_results.csv) (full report + flat report).  
+Or, you can just open the `OUTPUTFILE` in Excel (LibreOffice Calc). Sample outputs can be found [here](https://github.com/leunammejii/ioc_report/blob/master/sample_basic_results.csv) (basic report), [here](https://github.com/leunammejii/ioc_report/blob/master/sample_full_results.csv) (full report), and [here](https://github.com/leunammejii/ioc_report/blob/master/sample_flat_results.txt) (full report + flat report).  
 
 #### Destroy
 To remove the project completely,  run the following commands:  
