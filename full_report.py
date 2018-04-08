@@ -41,7 +41,6 @@ class IOCR:
             'ha:imphash',
             'ha:reference'
         ])
-        self.tmp_output_file = '/tmp/%s.tmp' % config.csv_output_file.rsplit('/', 1)[1]
 
     def read_input(self, inputFile):
         """Return contents from file"""
