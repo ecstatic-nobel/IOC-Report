@@ -10,8 +10,12 @@ vt_api_key = ''
 ha_api_key    = ''
 ha_secret_key = ''
 
-# These settings are used to create initial report. File paths should be entered 
+# These settings are used to create the reports. File paths should be entered 
 # as the absolute path.
-input_file      = 'FULLPATH/sample_urls.txt'
-csv_output_file = 'FULLPATH/sample_full_results.csv'
-txt_output_file = 'FULLPATH/sample_flat_results.txt'
+input_file      = 'sample_urls.txt'
+csv_output_file = 'sample_osint_report.csv'
+txt_output_file = 'sample_osint_report.txt'
+
+# Web server configurations
+host = '127.0.0.1'
+port = 8080
