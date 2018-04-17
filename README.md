@@ -2,7 +2,7 @@
 ##### Generate a report containing IOCs gathered from VirusTotal and Hybrid-Analysis.  
 
 #### Description  
-This project is used as a tool to automate the process of gathering and sharing indicators of compromise (IOC) from VirusTotal or Hybrid-Analysis to sweep your environment. Since this project was built around public APIs, there is a rate limit. I used the VirusTotal rate limit (4 requests per minute at the time of writing this) as the baseline. Since the Hybrid-Analysis function of this script checks two environments (Win 7 32-bit and Win 7 64-bit), it takes approximately 45 seconds to pull the information for each URL provided when generating the full report. Since the `iocr_download.sh` script only downloads the files and provides the filetypes and checksums, this should be 10x faster (FILE DOWNLOAD TIME x NUMBER OF URLS PROVIDED). If you have access to the private API, you should be able to remove the 15 second waits and everything "should" be fine (I haven't check the rate limits for the private API because I'm broke). Is 45 seconds a long time? Sure it is but this gives you more time to go do something else like flirt with your crush at work or twidle your thumbs.  
+This project is used as a tool to automate the process of gathering and sharing indicators of compromise (IOC) from VirusTotal or Hybrid-Analysis to sweep your environment. Since this project was built around public APIs, there is a rate limit. I used the VirusTotal rate limit (4 requests per minute at the time of writing this) as the baseline. Since the Hybrid-Analysis function of this script checks two environments (Win 7 32-bit and Win 7 64-bit), it takes approximately 45 seconds to pull the information for each URL provided when generating the full report. Since the `iocr_checksum.sh` script only downloads the files and provides the filetypes and checksums, this should be 10x faster (FILE DOWNLOAD TIME x NUMBER OF URLS PROVIDED). If you have access to the private API, you should be able to remove the 15 second waits and everything "should" be fine (I haven't check the rate limits for the private API because I'm broke). Is 45 seconds a long time? Sure it is but this gives you more time to go do something else like flirt with your crush at work or twidle your thumbs.  
 
 The `OUTPUTFILE` was meant to be used as a lookup table in Splunk in order to do more correlation with other log sources but as with any other open-source project, use it as you best see fit. If you are a Splunk master, manipulating the lookup table should be a piece of cake. This file is also used to do with the provided web service in order to share and pivot off the MD5 checksums.  
 
@@ -22,11 +22,11 @@ cd ioc_report
 ```
 
 #### Download Report  
-The download report, `iocr_download.sh`, is used to download the files, get the MIME-type, MD5, SHA256 hashes, remove the files, and write the comma-separated data to a file.  
+The download report, `iocr_checksum.sh`, is used to download the files, get the MIME-type, MD5, SHA256 hashes, remove the files, and write the comma-separated data to a file.  
 
 To run the script, run the following command from the project directory:  
 ```bash
-bash iocr_download.sh INPUTFILE OUTPUTFILE
+bash iocr_checksum.sh INPUTFILE OUTPUTFILE
 ```
 
 #### OSINT Report  
