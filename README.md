@@ -58,6 +58,11 @@ If you want to skip VirusTotal and submit hashes to Hybrid-Analysis, load the ha
 python iocr_osint.py  [--flat] --checksum
 ```
 
+If you want to pull the latest summaries from the feed Hybrid-Analysis (a cron job running once a day should be plenty), run the following command:  
+```python
+python iocr_osint.py  [--flat] --feed
+```
+
 #### Read the Results  
 Both of these scripts will read a list of URLs or MD5 checksums from the `INPUTFILE` and write the data to the `OUTPUTFILE`. If you want to read the results of the CSV file from the commandline, run the following command:  
 ```bash
