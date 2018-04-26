@@ -18,40 +18,43 @@ host   = config.host
 port   = config.port
 csvf   = config.csv_output_file
 txtf   = config.txt_output_file
+feedf  = config.feed_output_file
 
 @app.route('/')
 def index():
     """ """
-    line = return_lines('/', 'application/')
+    line = return_lines('/', 'application/', 'csv')
     fity = line[1].split(',')[2]
     chsu = line[1].split(',')[3]
+
     if chsu == '' or not fity.startswith('application/'):
         chsu = line[1].split(',')[6]
         if chsu == '':
-            return render_template('index.html', sena='%s:%s' % (host, port), chsu='{MD5}')
+            return render_template('index.html', sena='%s:%s' % (host, port), chsu='{IOC}')
         else:
             return render_template('index.html', sena='%s:%s' % (host, port), chsu=chsu)
+
 @app.route('/<file_type>')
 def return_all(file_type):
     """ """
     if file_type == 'csv':    oufi = csvf
     elif file_type == 'text': oufi = txtf
+    elif file_type == 'feed': oufi = feedf
     else:                     return abort(404)
 
     rein = store.read_input(oufi)
-    foco = '\n'.join(rein)
+    enin = [x.decode('utf-8') for x in rein]
+    foco = '\n'.join(enin)
 
     return render_template('response.html', text=foco)
 
-@app.route('/<file_type>/<md5>')
-def return_hash(file_type, md5):
+@app.route('/<file_type>/<search>')
+def return_hash(file_type, search):
     """ """
-    if file_type != 'csv' and file_type != 'text': return abort(404)
+    if file_type != 'csv' and file_type != 'text' and file_type != 'feed': return abort(404)
 
-    chsu = validate_checksum(md5)
-    if chsu == None: abort(404)
-    rout = '/%s/%s' % (file_type, md5)
-    iobh = return_lines(rout, chsu)
+    rout = '/%s/%s' % (file_type, search)
+    iobh = return_lines(rout, search, file_type)
     if len(iobh) < 2: abort(400)
     requ = '\n'.join(iobh)
 
@@ -59,7 +62,7 @@ def return_hash(file_type, md5):
         unfd = report.flat_data(iobh, None)
         requ = '\n'.join(unfd)
 
-    return render_template('response.html', text=requ)
+    return render_template('response.html', text=requ.decode('utf-8'))
 
 @app.errorhandler(404)
 def error_client(error):
@@ -76,15 +79,17 @@ def error_request(error):
     """ """
     return render_template('error_request.html'), 400
 
-def return_lines(route, resource):
+def return_lines(route, search, file_type):
     """ """
-    rein  = store.read_input(csvf)
+    oufi = csvf
+    if file_type == 'feed': oufi = feedf
+
+    rein  = store.read_input(oufi)
     lines = []
     lines.append(rein[0])
 
-    for line in rein: 
-        print line
-        if resource in line: 
+    for line in rein:
+        if search.lower() in line.decode('utf-8').lower(): 
             lines.append(line)
             if route == '/': break
 
