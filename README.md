@@ -98,7 +98,7 @@ curl http://HOST:PORT/text
 curl http://127.0.0.1:8080/csv/02244fbf2ba61afdf461f5e8cfdb19f4
 ```
 
-NOTE: Pivoting off of the `/feed` will always return the ouput formatted as CSV.  
+NOTE: Pivoting off of the `/feed` will always format the ouput as a CSV.  
 
 Now you have a way to create content based on this shared information.  
 
