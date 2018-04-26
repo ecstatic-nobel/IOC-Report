@@ -32,10 +32,14 @@ headers = ','.join([
     'vt:reference',
     'ha:tags',
     'ha:filetype',
+    'ha:malwarefamily',
+    'ha:detection',
+    'ha:verdict',
     'ha:hosts',
     'ha:domains',
     'ha:hashes',
     'ha:imphash',
+    'ha:environment',
     'ha:reference'
 ])
 
@@ -72,13 +76,26 @@ class Store:
 
         return noda
 
-    def write_output(self, output_data, fileType):
+    def write_output(self, output_data, fileType, fileMode):
         """Write contents to a file"""
         if fileType == 'c': oufi = config.csv_output_file
         if fileType == 't': oufi = config.txt_output_file
+        if fileType == 'f': oufi = config.feed_output_file
 
-        with open(oufi, 'w') as of:
-            for line in output_data: of.write('%s\n' % line)
+        if fileMode == 'a':
+            if not os.path.exists(oufi):
+                with open(oufi, 'w') as of:
+                    of.write('%s\n' % output_data[0])
+
+            ofco = self.read_input(oufi)
+
+            with open(oufi, 'a') as of:
+                for line in output_data[1:]:
+                    if line not in ofco:
+                        of.write('%s\n' % line)
+        if fileMode == 'w':
+            with open(oufi, 'w') as of:
+                for line in output_data: of.write('%s\n' % line)
 
         return
 
@@ -125,8 +142,12 @@ class Ioc:
 
     def vt_iocs(self, api_key, resource_data, resource_type, checksum):
         """Return Iocs from Virus Total."""
+        apho = 'https://www.virustotal.com'
+        apur = '/vtapi/v2/url/report'
+        apfr = '/vtapi/v2/file/report'
+
         if resource_type == 'u':
-            api  = 'https://www.virustotal.com/vtapi/v2/url/report'
+            api  = apho + apur
             spre = resource_data.split(',')               
             url  = spre[0]
             path = '/'+'/'.join(url.split('/')[3:])
@@ -143,22 +164,22 @@ class Ioc:
                 time.sleep(15)
 
                 if len(spre) == 1:
-                    resource_data = '%s,%s,,,,download skipped,%s,%s,%s' % (resource_data,
+                    resource_data = '%s,%s,,,,download skipped,%s,%s,%s' % (resource_data.replace('http', 'hxxp'),
                                                                             path,
                                                                             md5,
                                                                             sha256,
                                                                             ref)
                 else:
-                    resource_data = '%s,%s,%s,%s' % (resource_data, md5, sha256, ref)
+                    resource_data = '%s,%s,%s,%s' % (resource_data.replace('http', 'hxxp'), md5, sha256, ref)
             except:
                 if len(spre) == 6:
                     spre = spre + ['', '', 'file never seen']
                 else:
-                    spre = spre + [path, '', '', '', '', '', '', 'file never seen']
+                    spre = spre.replace('http', 'hxxp') + [path, '', '', '', '', '', '', 'file never seen']
                 resource_data = ','.join(spre)
                 time.sleep(15)
         elif resource_type == 'f':
-            api  = 'https://www.virustotal.com/vtapi/v2/file/report'
+            api  = apho + apfr
             padi = {'apikey': api_key, 'resource': checksum}
 
             try:
@@ -174,14 +195,13 @@ class Ioc:
 
     def ha_iocs(self, api_key, api_secret, vt_data, resource_type):
         """Return Iocs from Hybrid Analysis."""
-        api  = 'https://www.hybrid-analysis.com'
+        apho = 'https://www.hybrid-analysis.com'
         usag = {'User-agent': 'VxStream Sandbox'}
         eIDs = [100, 120]
         spvd = vt_data.split(',')
         chsu = str(spvd[0])
 
         if resource_type == 'u':
-            chsu = str(spvd)
             inft = spvd[2]
             inre = spvd[5]
             chsu = str(spvd[4])
@@ -191,7 +211,7 @@ class Ioc:
                 inre == 'file not found':
                 chsu = str(spvd[7])
 
-        api  = api + "/api/summary/" + chsu
+        api  = apho + "/api/summary/" + chsu
         haio = []
 
         for eID in eIDs:
@@ -209,37 +229,49 @@ class Ioc:
                 for tysh in resp['type_short']: 
                     hamt.append(self.get_mimetype(tysh))
                 haft = ' | '.join(hamt)
+                hamf = resp['vxfamily']
+                haad = resp['avdetect']
+                have = resp['verdict']
                 haip = ' | '.join(resp['hosts'])
                 hado = ' | '.join(resp['domains'])
+                # hanc = resp['total_network_connections']
                 hacs = ' | '.join(['%s (%s)' % (x['sha256'], x['name']) for x in resp['extracted_files']])
+                # hatp = str(resp['total_processes'])
                 haih = resp['imphash']
+                haen = resp['environmentDescription']
                 ref  = 'https://www.hybrid-analysis.com/sample/%s?environmentId=%s' % (chsu, str(eID))
-                neli = ',,,,%s,file not submitted,,,file not submitted,%s,%s,%s,%s,%s,%s,%s' % (chsu,
-                                                                                                hata,
-                                                                                                haft,
-                                                                                                haip,
-                                                                                                hado,
-                                                                                                hacs,
-                                                                                                haih,
-                                                                                                ref)
+                neli = ',,,,%s,file not submitted,,,file not submitted,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s' % (chsu,
+                                                                                                            hata,
+                                                                                                            haft,
+                                                                                                            hamf,
+                                                                                                            haad,
+                                                                                                            have,
+                                                                                                            haip,
+                                                                                                            hado,
+                                                                                                            hacs,
+                                                                                                            haih,
+                                                                                                            haen,
+                                                                                                            ref)
 
                 if resource_type == 'u':
-                    obli = vt_data.replace('http', 'hxxp').replace('.', '[.]')
-                    neli = '%s,%s,%s,%s,%s,%s,%s,%s' % (obli,
-                                                        hata,
-                                                        haft,
-                                                        haip,
-                                                        hado,
-                                                        hacs,
-                                                        haih,
-                                                        ref)
+                    neli = '%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s' % (vt_data,
+                                                                    hata,
+                                                                    haft,
+                                                                    hamf,
+                                                                    haad,
+                                                                    have,
+                                                                    haip,
+                                                                    hado,
+                                                                    hacs,
+                                                                    haih,
+                                                                    haen,
+                                                                    ref)
 
                 haio.append(neli)
             except:
-                neli  = ',,,,%s,file not submitted,,,file not submitted,,,,,,,file never seen' % chsu
+                neli  = ',,,,%s,file not submitted,,,file not submitted,,,,,,,,,,,file never seen' % chsu
                 if resource_type == 'u':
-                    obli = vt_data.replace('http', 'hxxp').replace('.', '[.]')
-                    neli = '%s,,,,,,,file never seen' % obli
+                    neli = '%s,,,,,,,,,,,file never seen' % vt_data
                 haio.append(neli)
             
             time.sleep(15)
@@ -271,6 +303,18 @@ class Ioc:
         }
 
         return mimetype.get(file_type, file_type)
+
+    def ha_feed(self):
+        """Pull the latest report summaries from the feed"""
+        apho = 'https://www.hybrid-analysis.com'
+        usag = {'User-agent': 'VxStream Sandbox'}
+        api  = apho + "/feed"
+        hare = requests.get(api, headers=usag).text.splitlines()
+        hali = [line.encode('utf-8') for line in hare]
+
+        Store().write_output(hali, 'f', 'a')
+
+        return
 
 class Report:
     """ """
@@ -348,18 +392,25 @@ def main():
     """ """
     # Parse Arguments
     parser = argparse.ArgumentParser(description='Generate Ioc report.')
-    parser.add_argument('-d', '--download',
+    group  = parser.add_mutually_exclusive_group()
+    group.add_argument('-d', '--download',
                         action='store_true',
                         dest='download',
                         default=False,
                         required=False,
                         help="attempt to download files first")
-    parser.add_argument('-c', '--checksum',
+    group.add_argument('-c', '--checksum',
                         action='store_true',
                         dest='checksum',
                         default=False,
                         required=False,
                         help="skip VirustTotal and submit MD5s to Hybrid-Analysis")
+    group.add_argument('-F', '--feed',
+                        action='store_true',
+                        dest='feed',
+                        default=False,
+                        required=False,
+                        help="pull latest report summaries from the feed. Overrides all other arguments passed in.")
     parser.add_argument('-f', '--flat',
                         action='store_true',
                         dest='flat',
@@ -372,6 +423,11 @@ def main():
     store  = Store()
     ioc    = Ioc()
     report = Report()
+
+    # Download Hybid-Analysis feed data
+    if args.feed:
+        ioc.ha_feed()
+        exit(0)
 
     csvf = config.csv_output_file
 
@@ -389,7 +445,9 @@ def main():
           +str(urco)\
           +' resources will take approximately '\
           +str(anti)\
-          +' minutes. Check the file periodically for updates...'
+          +' minutes. Check the '\
+          +config.csv_output_file\
+          +' periodically for updates...'
 
     # Attempt to Download Files
     if args.download:
@@ -408,7 +466,7 @@ def main():
             flda = report.flat_data(rein, 'c')
         else:
             flda = report.flat_data(rein, 'u')
-        store.write_output(flda, 't')
+        store.write_output(flda, 't', 'w')
 
 if __name__ == '__main__':
     main()
