@@ -10,9 +10,11 @@ Project: <a href='https://github.com/leunammejii/ioc_report'>https://github.com/
 <p>This site is used as a way to request the IOCs unique to your environment where the initial indicator was a URL hosting a malicious file. This will allow you to correlate data with other log sources in order to better understand the threat.</p>
 
 <h3>Request All IOCs</h3>
-<p>Sending a GET request to <a href='http://{{ sena }}/csv'>/csv</a> will return all of the IOCs in CSV format listed by URL. Or you can get all of the IOCs as a flat text file listed by URL by send a GET request to <a href='http://{{ sena }}/text'>/text</a>.</p>
+<p>Return all of the IOCs in CSV format listed by URL -> GET <a href='http://{{ sena }}/csv'>http://{{ sena }}/csv</a><br>
+Return up to 1000 of the last report summaries from the Hybrid Analysis feed in CSV format -> GET <a href='http://{{ sena }}/feed'>http://{{ sena }}/feed</a><br>
+Return all of the IOCs as a flat text file listed by URL -> GET<a href='http://{{ sena }}/text'>http://{{ sena }}/text</a></p>
 
-<h3>Request IOCs for a given MD5</h3>
-<p>Sending a GET request to /{FORMAT}/{MD5} will return the IOCs in requested format for that MD5. Here is an example:<br><br>
+<h3>Request IOCs for a given IOC</h3>
+<p>Sending a GET request to /{FORMAT}/{IOC} will return data in requested format for that IOC. Here is an example:<br><br>
 <a href='http://{{ sena }}/csv/{{ chsu }}'>http://{{ sena }}/csv/{{ chsu }}</a></p>
 </body>
