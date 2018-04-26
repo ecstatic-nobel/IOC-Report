@@ -95,10 +95,4 @@ def return_lines(route, search, file_type):
 
     return lines
 
-def validate_checksum(checksum):
-    """ """
-    iscu = findall(r'(?i)(?<![a-z0-9])[a-f0-9]{32}(?![a-z0-9])', checksum)
-    if len(iscu) == 1: return checksum
-    else:              return None
-
 app.run(host=host, port=port, threaded=True)
