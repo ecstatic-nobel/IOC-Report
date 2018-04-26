@@ -44,23 +44,23 @@ The OSINT report, `iocr_osint.py`, is used to download the files, get the MIME-t
 You can request both at the same time if needed.  
 
 To run the script, add the API keys for both VirusTotal and Hybrid-Analysis to `config.py`, add the full path of the input and output files to `config.py`, and run the following command from the project directory:  
-```python
+```
 python iocr_osint.py [--flat]
 ```
 
 This will query VirusTotal for the hashes of the last downloaded the files from the URLs provided. If you want to download the files first to get the hashes, run the following command:  
-```python
-python iocr_osint.py  [--flat] --download
+```
+python iocr_osint.py [--flat] --download
 ```
 
 If you want to skip VirusTotal and submit hashes to Hybrid-Analysis, load the hashes into the `INPUTFILE` specified in the config, and run the following command:  
-```python
-python iocr_osint.py  [--flat] --checksum
+```
+python iocr_osint.py [--flat] --checksum
 ```
 
 If you want to pull the latest summaries from the feed Hybrid-Analysis (a cron job running once a day should be plenty), run the following command:  
-```python
-python iocr_osint.py  [--flat] --feed
+```
+python iocr_osint.py [--flat] --feed
 ```
 
 #### Read the Results  
