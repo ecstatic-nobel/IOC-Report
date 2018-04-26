@@ -21,6 +21,13 @@ git clone https://github.com/leunammejii/ioc_report.git
 cd ioc_report
 ```
 
+#### Latest Features  
+v0.0.1 - Created project to download files from a list of URLs, get the checksums of the downloaded files, submit the URLs to VirusTotal for checksums of the last file analyzed, and finally submit the correct checksums to Hybrid-Analysis for a summary of the IOCs.  
+v0.0.2 - Added the option to skip the file download.  
+v0.0.3 - Added support to submit a list of hashes straight to Hybrid-Analysis.  
+v0.0.4 - Added a web service to centralize IOC sharing.  
+v0.0.5 - Added the option to pull the latest summaries from the Hyrid-Analysis feed. Added support to search the web service for any IOC.  
+
 #### Download Report  
 The download report, `iocr_checksum.sh`, is used to download the files, get the MIME-type, MD5, SHA256 hashes, remove the files, and write the comma-separated data to a file.  
 
@@ -71,12 +78,17 @@ Once the service has started, anyone with access to the URL, `http://HOST:PORT/`
 curl http://HOST:PORT/csv
 ```
 
+- Get data from the Hybrid-Analysis feed as a CSV  
+```bash
+curl http://HOST:PORT/feed
+```
+
 - Get a list of all the IOCs as a flat text file  
 ```bash
 curl http://HOST:PORT/text
 ```
 
-- Pivot off the MD5 checksum and get a list of IOCs as a flat text (or CSV) file  
+- Pivot off an IOC and return data as a flat text (or CSV) file  
 ```bash
 curl http://127.0.0.1:8080/csv/02244fbf2ba61afdf461f5e8cfdb19f4
 ```
