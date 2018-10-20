@@ -1,3 +1,6 @@
+# DEPRECATED: Moving to the OSweep Project  
+---
+
 # [ioc_report]  
 ##### Generate a report containing IOCs gathered from VirusTotal and Hybrid-Analysis.  
 
@@ -117,3 +120,6 @@ rm -rf ioc_report
 #### To-Do  
 - [ ] Output request to web service in Json  
 - [ ] POST a list a URLs or checksums to the service to validate  
+
+---
+# DEPRECATED: Moving to the OSweep Project  
