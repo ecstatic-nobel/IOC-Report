@@ -1,4 +1,4 @@
-# DEPRECATED: Moving to the OSweep Project  
+# DEPRECATED: Moving to the OSweep Project (https://github.com/leunammejii/osweep)  
 ---
 
 # [ioc_report]  
