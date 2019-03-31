@@ -1,7 +1,7 @@
-# DEPRECATED: Moving to the OSweep Project (https://github.com/leunammejii/osweep)  
+# DEPRECATED: Moving to the OSweep Project (https://github.com/ecstatic-nobel/osweep)  
 ---
 
-# [ioc_report]  
+# [IOC Report]  
 ##### Generate a report containing IOCs gathered from VirusTotal and Hybrid-Analysis.  
 
 #### Description  
@@ -20,8 +20,8 @@ The `OUTPUTFILE` was meant to be used as a lookup table in Splunk in order to do
 #### Setup  
 Open a terminal and run the following commands:  
 ```bash
-git clone https://github.com/leunammejii/ioc_report.git
-cd ioc_report
+git clone https://github.com/ecstatic-nobel/IOC-Report.git
+cd IOC-Report
 ```
 
 #### Latest Features  
@@ -72,7 +72,7 @@ Both of these scripts will read a list of URLs or MD5 checksums from the `INPUTF
 column -t -s , OUTPUTFILE
 ```
 
-Or, you can open the `OUTPUTFILE` in Excel (LibreOffice Calc). Sample outputs can be found [here](https://github.com/leunammejii/ioc_report/blob/master/sample_checksum_report.csv) (download report), [here](https://github.com/leunammejii/ioc_report/blob/master/sample_osint_report.csv) (CSV report), and [here](https://github.com/leunammejii/ioc_report/blob/master/sample_osint_report.txt) (flat text report).  
+Or, you can open the `OUTPUTFILE` in Excel (LibreOffice Calc). Sample outputs can be found [here](https://github.com/ecstatic-nobel/IOC-Report/blob/master/sample_checksum_report.csv) (download report), [here](https://github.com/ecstatic-nobel/IOC-Report/blob/master/sample_osint_report.csv) (CSV report), and [here](https://github.com/ecstatic-nobel/IOC-Report/blob/master/sample_osint_report.txt) (flat text report).  
 
 #### OSINT Web Server  
 This project also comes with a simple web server used to easily share the IOCs seen in your environment. Add the IP address of the host to the `host` parameter and the port the server should listen on to the `port` parameter in the `config.py` file. Once the file is saved, run the following command:  
@@ -122,4 +122,4 @@ rm -rf ioc_report
 - [ ] POST a list a URLs or checksums to the service to validate  
 
 ---
-# DEPRECATED: Moving to the OSweep Project  
+# DEPRECATED: Moving to the OSweep Project (https://github.com/ecstatic-nobel/osweep)  
