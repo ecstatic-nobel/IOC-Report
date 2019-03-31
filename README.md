@@ -108,7 +108,7 @@ Now you have a way to create content based on this shared information.
 #### Destroy
 To remove the project completely,  run the following commands:  
 ```bash
-rm -rf ioc_report
+rm -rf IOC-Report
 ```  
 
 #### Things to Know  
